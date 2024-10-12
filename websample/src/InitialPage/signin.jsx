@@ -41,7 +41,7 @@ const Signin = () => {
 
     dispatch(
       showNotification({
-        message: "Login success!",
+        message: "Login Successfully!",
         type: "success",
       })
     );

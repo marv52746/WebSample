@@ -7,6 +7,9 @@ import Home from "../modules/home/home.js";
 import About from "../modules/about/about.jsx";
 import Profile from "../modules/profile/profile.jsx";
 import Contact from "../modules/contact/contact.js";
+import FormComponent from "../core/components/FormComponent.js";
+import Users from "../modules/users/users.js";
+import UserForm from "../modules/users/userForm.js";
 
 const routes = all_routes;
 
@@ -47,6 +50,20 @@ export const authRoute = [
     path: routes.profile,
     name: "profile",
     element: <Profile />,
+    route: Route,
+  },
+  {
+    id: 2,
+    path: routes.users,
+    name: "users",
+    element: <Users />,
+    route: Route,
+  },
+  {
+    id: 3,
+    path: routes.user_form,
+    name: "user_form",
+    element: <UserForm />,
     route: Route,
   },
 ];

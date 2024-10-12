@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./slices/userSlice";
 import notificationReducer from "./slices/notificationSlice";
+import userListReducer from "./slices/userListSlice";
 import {
   persistStore,
   persistReducer,
@@ -22,11 +23,13 @@ const persistConfig = {
 
 // Create a persisted reducer
 const persistedReducer = persistReducer(persistConfig, userReducer);
+const persistedUserListReducer = persistReducer(persistConfig, userListReducer);
 
 // Configure the store
 const store = configureStore({
   reducer: {
     user: persistedReducer,
+    userList: persistedUserListReducer,
     notification: notificationReducer,
   },
   middleware: (getDefaultMiddleware) =>

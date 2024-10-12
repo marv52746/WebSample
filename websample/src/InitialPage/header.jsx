@@ -39,6 +39,9 @@ const Header = () => {
         </Link>
         {authState && (
           <>
+            <Link to="/users" style={linkStyle}>
+              User List
+            </Link>
             <Link to="/profile" style={linkStyle}>
               Profile
             </Link>
