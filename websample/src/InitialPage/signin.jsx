@@ -4,6 +4,8 @@ import { jwtDecode } from "jwt-decode"; // Named import
 import { useDispatch } from "react-redux";
 import { loggedUserData } from "../core/services/slices/userSlice";
 import { useNavigate } from "react-router-dom";
+import { showNotification } from "../core/services/slices/notificationSlice";
+import { type } from "@testing-library/user-event/dist/type";
 
 const Signin = () => {
   const dispatch = useDispatch();
@@ -37,6 +39,14 @@ const Signin = () => {
 
     // Dispatch action to store user data in Redux and session storage
     dispatch(loggedUserData({ ...userObject, token }));
+
+    dispatch(
+      showNotification({
+        message: "Login success!",
+        type: "success",
+      })
+    );
+
     if (token) {
       navigate("/");
     }

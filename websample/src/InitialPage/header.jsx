@@ -5,14 +5,27 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { logoutUser } from "../core/services/slices/userSlice";
 
+import Notification from "../core/notifications/notification"; // Adjust the path as necessary
+import { showNotification } from "../core/services/slices/notificationSlice";
+
 const Header = () => {
   const authState = useSelector((state) => state.user.authState);
+  const notification = useSelector((state) => state.notification.isVisible);
   const dispatch = useDispatch();
+
   const logout = () => {
     dispatch(logoutUser());
+    dispatch(
+      showNotification({
+        message: "Logout successfully!",
+        type: "success",
+      })
+    );
   };
   return (
     <header style={headerStyle}>
+      {notification && <Notification />}
+
       <Link to="/">
         <h1 style={({ margin: 0 }, linkStyle)}>My App</h1>
       </Link>

@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./slices/userSlice";
+import notificationReducer from "./slices/notificationSlice";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage"; // Default storage for web
 import { thunk } from "redux-thunk"; // Import Redux Thunk
@@ -17,6 +18,7 @@ const persistedReducer = persistReducer(persistConfig, userReducer);
 const store = configureStore({
   reducer: {
     user: persistedReducer,
+    notification: notificationReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
 });
