@@ -13,7 +13,7 @@ const Header = () => {
   const notification = useSelector((state) => state.notification.isVisible);
   const dispatch = useDispatch();
 
-  const logout = () => {
+  const handleLogout = () => {
     dispatch(logoutUser());
     dispatch(
       showNotification({
@@ -22,6 +22,7 @@ const Header = () => {
       })
     );
   };
+
   return (
     <header style={headerStyle}>
       {notification && <Notification />}
@@ -41,7 +42,7 @@ const Header = () => {
             <Link to="/profile" style={linkStyle}>
               Profile
             </Link>
-            <Link to="/logout" style={linkStyle} onClick={logout}>
+            <Link to="/" style={linkStyle} onClick={handleLogout}>
               Logout
             </Link>
           </>

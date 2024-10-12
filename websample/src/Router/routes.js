@@ -3,11 +3,12 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import Header from "../InitialPage/header";
 import { authRoute, publicRoutes } from "./router.link";
 import Signin from "../InitialPage/signin";
+import { useSelector } from "react-redux";
 
 // ProtectedRoute component to manage access to authenticated routes
 const ProtectedRoute = ({ element }) => {
-  const token = window.sessionStorage.getItem("access-token");
-  return token ? element : <Navigate to="/signin" />;
+  const authState = useSelector((state) => state.user.authState);
+  return authState ? element : <Navigate to="/signin" />;
 };
 
 const AllRoutes = () => {

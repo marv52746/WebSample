@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import { loggedUserData } from "../core/services/slices/userSlice";
 import { useNavigate } from "react-router-dom";
 import { showNotification } from "../core/services/slices/notificationSlice";
-import { type } from "@testing-library/user-event/dist/type";
 
 const Signin = () => {
   const dispatch = useDispatch();
